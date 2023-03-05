@@ -1,6 +1,9 @@
+// 연속된 자연수의 합 구하기 (투포인터)
+
 #include <iostream>
 
 using namespace std;
+
 
 int main() {
     ios::sync_with_stdio(false);
@@ -15,6 +18,7 @@ int main() {
     int sum = 1;
     int count = 1;
 
+    // 투 포인터 알고리즘
     while (end != N) {
         if (sum < N) {
             end++;
@@ -30,5 +34,6 @@ int main() {
             count++;
         }
     }
+
     cout << count << "\n";
 }

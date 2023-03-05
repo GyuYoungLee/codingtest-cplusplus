@@ -1,3 +1,5 @@
+// DNA 비밀번호 (슬라이딩 윈도우)
+
 #include <iostream>
 
 using namespace std;
@@ -7,6 +9,7 @@ int myArr[4] = {0};
 int checkSecret = 0;
 
 void myAdd(char c);
+
 void myRemove(char c);
 
 
@@ -23,18 +26,18 @@ int main() {
     cin >> A;
     for (int &x: checkArr) cin >> x;
 
-    // checkSecret �ʱ�ȭ
+    // checkSecret 초기화
     for (int x: checkArr)
         if (x == 0) checkSecret++;
 
-    // myArr �ʱ�ȭ
+    // myArr 초기화
     for (int i = 0; i < P; i++) myAdd(A[i]);
     if (checkSecret == 4) count++;
 
-    // �����̵�
+    // 슬라이딩
     for (int i = P; i < S; i++) {
-        myAdd(A[i]);
-        myRemove(A[i - P]);
+        myAdd(A[i]);         // 뒤쪽에 새로운 값 추가
+        myRemove(A[i - P]);  // 앞쪽에 기존 값 제거
 
         if (checkSecret == 4) count++;
     }

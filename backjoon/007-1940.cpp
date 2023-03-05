@@ -1,8 +1,11 @@
+// 주몽의 명령 (투포인터)
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
 using namespace std;
+
 
 int main() {
     ios::sync_with_stdio(false);
@@ -20,6 +23,7 @@ int main() {
     int end = N - 1;
     int count = 0;
 
+    // 투 포인터 알고리즘
     while (start < end) {
         if (A[start] + A[end] > M) {
             end--;
@@ -31,5 +35,6 @@ int main() {
             end--;
         }
     }
+
     cout << count << endl;
 }

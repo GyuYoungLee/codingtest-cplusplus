@@ -1,3 +1,5 @@
+// 구간 합 구하기 2 (구간합)
+
 #include <iostream>
 #include <vector>
 
@@ -15,6 +17,7 @@ int main() {
     vector<vector<int>> A(N + 1, vector<int>(N + 1, 0));
     vector<vector<int>> S(N + 1, vector<int>(N + 1, 0));
 
+    // 합배열 만들기
     for (int i = 1; i <= N; i++) {
         for (int j = 1; j <= N; j++) {
             cin >> A[i][j];
@@ -28,6 +31,4 @@ int main() {
         int result = S[x2][y2] - S[x2][y1 - 1] - S[x1 - 1][y2] + S[x1 - 1][y1 - 1];
         cout << result << "\n";
     }
-
-    return 0;
 }

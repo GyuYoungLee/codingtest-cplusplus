@@ -1,11 +1,13 @@
+// 평균 구하기
+
 #include <iostream>
 
 using namespace std;
 
 
 int main() {
-    int N = 0;
-    int score[1000] = {0};
+    int N;
+    int score[1000];
 
     cin >> N;
     for (int i = 0; i < N; i++)
@@ -20,8 +22,6 @@ int main() {
         sum += score[i];
     }
 
-    double result = sum * 100.0 / N / max;
+    double result = sum * 100.0 / max / N;
     cout << result << endl;
-
-    return 0;
 }

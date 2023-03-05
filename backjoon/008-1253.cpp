@@ -1,8 +1,11 @@
+// 좋은 수 구하기 (투포인터)
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
 using namespace std;
+
 
 int main() {
     ios::sync_with_stdio(false);
@@ -24,6 +27,7 @@ int main() {
         int j = N - 1;
         int target = A[k];
 
+        // 투 포인터 알고리즘
         while (i < j) {
             if (A[i] + A[j] > target) {
                 j--;

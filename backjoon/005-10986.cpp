@@ -1,7 +1,10 @@
+// ë‚˜ë¨¸ì§€ í•© êµ¬í•˜ê¸° (êµ¬ê°„í•©)
+
 #include <iostream>
 #include <vector>
 
 using namespace std;
+
 
 int main() {
     ios::sync_with_stdio(false);
@@ -15,18 +18,18 @@ int main() {
     vector<long> S(N + 1, 0);
     vector<long> C(M, 0);
 
-    for (int i = 1; i < N + 1; i++)
+    // í•©ë°°ì—´ ë§Œë“¤ê¸°
+    for (int i = 1; i < N + 1; i++) {
         cin >> A[i];
-
-    for (int i = 1; i < N + 1; i++)
         S[i] = S[i - 1] + A[i];
+    }
 
     for (int i = 0; i < N + 1; i++) {
         int remainder = S[i] % M;
         C[remainder]++;
     }
 
-    long answer = 0;                    // long À¸·Î ¼±¾ðÇØ¾ß Á¤´äÀÌ µÊ
+    long answer = 0;
     for (int i = 0; i < M; i++) {
         answer += C[i] * (C[i] - 1) / 2;
     }

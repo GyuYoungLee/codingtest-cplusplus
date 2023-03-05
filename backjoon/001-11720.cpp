@@ -1,10 +1,12 @@
+// 합 구하기
+
 #include <iostream>
 
 using namespace std;
 
 
 int main() {
-    int N = 0;
+    int N;
     string numbers;
 
     cin >> N;
@@ -15,6 +17,4 @@ int main() {
         sum += numbers[i] - '0';
     }
     cout << sum << endl;
-
-    return 0;
 }

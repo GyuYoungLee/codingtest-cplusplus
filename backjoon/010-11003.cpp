@@ -1,3 +1,5 @@
+// ìµœì†Ÿê°’ ì°¾ê¸° (ìŠ¬ë¼ì´ë”© ìœˆë„ìš°)
+
 #include <iostream>
 #include <deque>
 
@@ -10,22 +12,23 @@ int main() {
     cout.tie(nullptr);
 
     int N, L;
-    deque<pair<int, int>> dq;
-
     cin >> N >> L;
 
+    deque<pair<int, int>> dq;
+
+    // ìŠ¬ë¼ì´ë”©
     for (int i = 0; i < N; i++) {
         int now;
         cin >> now;
 
-        // µÚÂÊ¿¡ Å«°ª Á¦°Å
+        // ë’¤ìª½ì— ìƒˆë¡œìš´ ê°’ ì¶”ê°€
         while (!dq.empty() && dq.back().first > now) dq.pop_back();
 
         dq.push_back(make_pair(now, i));
 
-        // ¾ÕÂÊ¿¡ ½½¶óÀÌµù ¹ş¾î³­ °ª Á¦°Å
+        // ì•ìª½ì— ê¸°ì¡´ ê°’ ì œê±°
         if (dq.front().second <= i - L) dq.pop_front();
 
-        cout << dq.front().first << ' '; // ÃÖ¼Ò°ª Ãâ·Â
+        cout << dq.front().first << ' '; // ìµœì†Œê°’ ì¶œë ¥
     }
 }
