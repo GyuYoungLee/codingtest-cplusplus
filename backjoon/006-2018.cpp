@@ -6,34 +6,30 @@ using namespace std;
 
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-    cout.tie(nullptr);
-
     int N;
     cin >> N;
 
-    int start = 1;
-    int end = 1;
+    int i = 1;
+    int j = 1;
     int sum = 1;
-    int count = 1;
+    int cnt = 0;
 
-    // 투 포인터 알고리즘
-    while (end != N) {
+    // 투 포인터
+    while (j <= N) {
         if (sum < N) {
-            end++;
-            sum += end;
+            j++;
+            sum += j;
         } else if (sum > N) {
-            sum -= start;
-            start++;
+            sum -= i;
+            i++;
         } else {
-            end++;
-            sum += end;
-            sum -= start;
-            start++;
-            count++;
+            j++;
+            sum += j;
+            sum -= i;
+            i++;
+            cnt++;
         }
     }
 
-    cout << count << "\n";
+    cout << cnt << endl;
 }

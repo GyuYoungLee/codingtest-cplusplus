@@ -7,14 +7,15 @@ using namespace std;
 
 int main() {
     int N;
-    string numbers;
+    string number;
 
     cin >> N;
-    cin >> numbers;
+    cin >> number;
 
     int sum = 0;
-    for (int i = 0; i < N; i++) {
-        sum += numbers[i] - '0';
+    for (char n: number) {
+        sum += n - '0';
     }
+
     cout << sum << endl;
 }

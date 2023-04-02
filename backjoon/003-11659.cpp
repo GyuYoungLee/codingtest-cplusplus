@@ -1,6 +1,7 @@
 // 구간 합 구하기 (구간합)
 
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -13,18 +14,18 @@ int main() {
     int N, M;
     cin >> N >> M;
 
-    int S[100001] = {0};
-    int temp;
+    vector<int> S(N + 1, 0);
 
-    // 합배열 만들기
+    // 합배열 생성
     for (int i = 1; i <= N; i++) {
-        cin >> temp;
-        S[i] = S[i - 1] + temp;
+        int now;
+        cin >> now;
+        S[i] = S[i - 1] + now;
     }
 
     for (int i = 0; i < M; i++) {
-        int start, end;
-        cin >> start >> end;
-        cout << S[end] - S[start - 1] << "\n";
+        int st, en;
+        cin >> st >> en;
+        cout << S[en] - S[st - 1] << '\n';
     }
 }

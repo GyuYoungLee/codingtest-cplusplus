@@ -4,85 +4,81 @@
 
 using namespace std;
 
-int checkArr[4] = {0};
-int myArr[4] = {0};
-int checkSecret = 0;
+int check[4];
+int checkCnt = 0;
 
-void myAdd(char c);
+void addCh(char c);
 
-void myRemove(char c);
+void removeCh(char c);
 
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-    cout.tie(nullptr);
-
     int S, P;
     string A;
-    int count = 0;
 
     cin >> S >> P;
     cin >> A;
-    for (int &x: checkArr) cin >> x;
+    for (int &x: check) {
+        cin >> x;
+        if (x == 0) checkCnt++;
+    }
 
-    // checkSecret 초기화
-    for (int x: checkArr)
-        if (x == 0) checkSecret++;
+    int cnt = 0;
 
-    // myArr 초기화
-    for (int i = 0; i < P; i++) myAdd(A[i]);
-    if (checkSecret == 4) count++;
+    // 첫 윈도우 체크
+    for (int i = 0; i < P; i++) {
+        addCh(A[i]);
+    }
+    if (checkCnt == 4) cnt++;
 
-    // 슬라이딩
+    // 슬라이딩하면서 각 윈도우 체크
     for (int i = P; i < S; i++) {
-        myAdd(A[i]);         // 뒤쪽에 새로운 값 추가
-        myRemove(A[i - P]);  // 앞쪽에 기존 값 제거
-
-        if (checkSecret == 4) count++;
+        addCh(A[i]);
+        removeCh(A[i - P]);
+        if (checkCnt == 4) cnt++;
     }
 
-    cout << count << endl;
+    cout << cnt << endl;
 }
 
-void myAdd(char c) {
+void addCh(char c) {
     switch (c) {
         case 'A':
-            myArr[0]++;
-            if (myArr[0] == checkArr[0]) checkSecret++;
+            check[0]--;
+            if (check[0] == 0) checkCnt++;
             break;
         case 'C':
-            myArr[1]++;
-            if (myArr[1] == checkArr[1]) checkSecret++;
+            check[1]--;
+            if (check[1] == 0) checkCnt++;
             break;
         case 'G':
-            myArr[2]++;
-            if (myArr[2] == checkArr[2]) checkSecret++;
+            check[2]--;
+            if (check[2] == 0) checkCnt++;
             break;
         case 'T':
-            myArr[3]++;
-            if (myArr[3] == checkArr[3]) checkSecret++;
+            check[3]--;
+            if (check[3] == 0) checkCnt++;
             break;
     }
 }
 
-void myRemove(char c) {
+void removeCh(char c) {
     switch (c) {
         case 'A':
-            myArr[0]--;
-            if (myArr[0] == (checkArr[0] - 1)) checkSecret--;
+            if (check[0] == 0) checkCnt--;
+            check[0]++;
             break;
         case 'C':
-            myArr[1]--;
-            if (myArr[1] == (checkArr[1] - 1)) checkSecret--;
+            if (check[1] == 0) checkCnt--;
+            check[1]++;
             break;
         case 'G':
-            myArr[2]--;
-            if (myArr[2] == (checkArr[2] - 1)) checkSecret--;
+            if (check[2] == 0) checkCnt--;
+            check[2]++;
             break;
         case 'T':
-            myArr[3]--;
-            if (myArr[3] == (checkArr[3] - 1)) checkSecret--;
+            if (check[3] == 0) checkCnt--;
+            check[3]++;
             break;
     }
 }

@@ -14,21 +14,30 @@ int main() {
     int N, L;
     cin >> N >> L;
 
+    int now;
     deque<pair<int, int>> dq;
 
-    // 슬라이딩
-    for (int i = 0; i < N; i++) {
-        int now;
+    // 첫 윈도우 체크
+    for (int i = 0; i < L; i++) {
+        cin >> now;
+
+        while(!dq.empty() && dq.back().first > now) dq.pop_back();
+        dq.emplace_back(now, i);
+
+        cout << dq.front().first << ' ';
+    }
+
+    // 슬라이딩하면서 각 윈도우 체크
+    for (int i = L; i < N; i++) {
         cin >> now;
 
         // 뒤쪽에 새로운 값 추가
-        while (!dq.empty() && dq.back().first > now) dq.pop_back();
-
-        dq.push_back(make_pair(now, i));
+        while(!dq.empty() && dq.back().first >= now) dq.pop_back();
+        dq.emplace_back(now, i);
 
         // 앞쪽에 기존 값 제거
         if (dq.front().second <= i - L) dq.pop_front();
 
-        cout << dq.front().first << ' '; // 최소값 출력
+        cout << dq.front().first << ' ';
     }
 }

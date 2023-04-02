@@ -14,24 +14,26 @@ int main() {
     int N, M;
     cin >> N >> M;
 
-    vector<long> A(N + 1, 0);
     vector<long> S(N + 1, 0);
     vector<long> C(M, 0);
 
-    // 합배열 만들기
-    for (int i = 1; i < N + 1; i++) {
-        cin >> A[i];
-        S[i] = S[i - 1] + A[i];
+    // 합배열 생성
+    for (int i = 1; i <= N; i++) {
+        int now;
+        cin >> now;
+        S[i] = S[i - 1] + now;
     }
 
-    for (int i = 0; i < N + 1; i++) {
-        int remainder = S[i] % M;
-        C[remainder]++;
+    // 변형된 합배열 생성
+    for (int i = 0; i <= N; i++) {
+        int remain = S[i] % M;
+        C[remain]++;
     }
 
-    long answer = 0;
+    // 계산
+    long cnt = 0;
     for (int i = 0; i < M; i++) {
-        answer += C[i] * (C[i] - 1) / 2;
+        cnt += C[i] * (C[i] - 1) / 2;
     }
-    cout << answer << "\n";
+    cout << cnt << endl;
 }

@@ -15,30 +15,28 @@ int main() {
     int N;
     cin >> N;
 
-    vector<int> A(N, 0);
-    for (int i = 0; i < N; i++) cin >> A[i];
-
-    vector<int> ans(N, 0);
     stack<pair<int, int>> st;
+    vector<int> result(N, 0);
+    int now;
 
-    // [3 5 2 7] => 오큰수 [5 7 7 -1]
     for (int i = 0; i < N; i++) {
-        // 큰 수는 오큰수 처리
-        while (!st.empty() && st.top().first < A[i]) {
+        cin >> now;
+
+        // now가 큰 수라면 오큰수로 저장
+        while (!st.empty() && st.top().first < now) {
             int idx = st.top().second;
-            ans[idx] = A[i];
+            result[idx] = now;
             st.pop();
         }
 
-        // 작은 수는 스택에 저장
-        st.push(make_pair(A[i], i));
+        st.emplace(now, i);
     }
 
     while (!st.empty()) {
         int idx = st.top().second;
-        ans[idx] = -1;
+        result[idx] = -1;
         st.pop();
     }
 
-    for (const int x: ans) cout << x << " ";
+    for (int x: result) cout << x << ' ';
 }

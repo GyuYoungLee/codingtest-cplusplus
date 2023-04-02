@@ -7,15 +7,11 @@ using namespace std;
 
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-    cout.tie(nullptr);
-
     int N;
     cin >> N;
 
     queue<int> qu;
-    for (int i = 1; i < N + 1; i++) qu.push(i);
+    for (int i = 1; i <= N; i++) qu.push(i);
 
     while (qu.size() > 1) {
         qu.pop();

@@ -8,10 +8,6 @@ using namespace std;
 
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-    cout.tie(nullptr);
-
     int N, M;
     cin >> N >> M;
 
@@ -19,22 +15,22 @@ int main() {
     for (int i = 0; i < N; i++) cin >> A[i];
     sort(A.begin(), A.end());
 
-    int start = 0;
-    int end = N - 1;
-    int count = 0;
+    int i = 0;
+    int j = N - 1;
+    int cnt = 0;
 
-    // 투 포인터 알고리즘
-    while (start < end) {
-        if (A[start] + A[end] > M) {
-            end--;
-        } else if (A[start] + A[end] < M) {
-            start++;
+    // 투 포인터
+    while (i < j) {
+        if (A[i] + A[j] > M) {
+            j--;
+        } else if (A[i] + A[j] < M) {
+            i++;
         } else {
-            count++;
-            start++;
-            end--;
+            j--;
+            i++;
+            cnt++;
         }
     }
 
-    cout << count << endl;
+    cout << cnt << endl;
 }

@@ -5,7 +5,7 @@
 
 using namespace std;
 
-struct compare {
+struct Compare {
     bool operator()(int a, int b) {
         int a_abs = abs(a);
         int b_abs = abs(b);
@@ -14,32 +14,31 @@ struct compare {
     }
 };
 
-
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
 
-    // compare 정렬 기준
-    priority_queue<int, vector<int>, compare> pqu;
+    priority_queue<int, vector<int>, Compare> pqu;
 
     int N;
     cin >> N;
 
     for (int i = 0; i < N; i++) {
-        int request;
-        cin >> request;
+        int op;
+        cin >> op;
 
-        if (request == 0) {
-            if (pqu.empty()) {
+        if (op == 0) {
+            // 꺼내기
+            if (!pqu.empty()) {
+                cout << pqu.top() << '\n';
+                pqu.pop();
+            } else {
                 cout << "0\n";
             }
-            else {
-                cout << pqu.top() << "\n";
-                pqu.pop();
-            }
         } else {
-            pqu.push(request);
+            // 넣기
+            pqu.push(op);
         }
     }
 }
