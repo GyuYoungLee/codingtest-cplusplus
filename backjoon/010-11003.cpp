@@ -14,11 +14,11 @@ int main() {
     int N, L;
     cin >> N >> L;
 
-    int now;
     deque<pair<int, int>> dq;
 
     // 첫 윈도우 체크
     for (int i = 0; i < L; i++) {
+        int now;
         cin >> now;
 
         while(!dq.empty() && dq.back().first > now) dq.pop_back();
@@ -29,6 +29,7 @@ int main() {
 
     // 슬라이딩하면서 각 윈도우 체크
     for (int i = L; i < N; i++) {
+        int now;
         cin >> now;
 
         // 뒤쪽에 새로운 값 추가

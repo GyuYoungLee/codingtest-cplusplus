@@ -17,9 +17,9 @@ int main() {
 
     stack<pair<int, int>> st;
     vector<int> result(N, 0);
-    int now;
 
     for (int i = 0; i < N; i++) {
+        int now;
         cin >> now;
 
         // now가 큰 수라면 오큰수로 저장

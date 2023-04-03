@@ -16,11 +16,11 @@ int main() {
     cin >> N;
 
     stack<int> st;
-    int now;
     int num = 1;
     string answer;
 
     for (int i = 0; i < N; i++) {
+        int now;
         cin >> now;
 
         while (num <= now) {

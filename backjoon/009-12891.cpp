@@ -26,9 +26,7 @@ int main() {
     int cnt = 0;
 
     // 첫 윈도우 체크
-    for (int i = 0; i < P; i++) {
-        addCh(A[i]);
-    }
+    for (int i = 0; i < P; i++) addCh(A[i]);
     if (checkCnt == 4) cnt++;
 
     // 슬라이딩하면서 각 윈도우 체크

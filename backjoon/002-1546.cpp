@@ -9,7 +9,8 @@ int main() {
     int N;
     cin >> N;
 
-    int sum = 0, max = 0;
+    int sum = 0;
+    int max = 0;
 
     for (int i = 0; i < N; i++) {
         int now;
