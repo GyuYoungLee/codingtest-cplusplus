@@ -22,3 +22,8 @@ int main() {
     double result = sum * 100.0 / max / N;
     cout << result << endl;
 }
+
+/*
+3
+40 80 60
+*/

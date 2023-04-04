@@ -80,3 +80,9 @@ void removeCh(char c) {
             break;
     }
 }
+
+/*
+4 2
+GATA
+1 0 0 1
+*/

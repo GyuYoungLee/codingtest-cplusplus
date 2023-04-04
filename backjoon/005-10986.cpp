@@ -37,3 +37,8 @@ int main() {
     }
     cout << cnt << endl;
 }
+
+/*
+5 3
+1 2 3 1 2
+*/

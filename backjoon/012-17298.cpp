@@ -40,3 +40,8 @@ int main() {
 
     for (int x: result) cout << x << ' ';
 }
+
+/*
+4
+3 5 2 7
+*/

@@ -21,3 +21,7 @@ int main() {
 
     cout << qu.front() << endl;
 }
+
+/*
+6
+*/
