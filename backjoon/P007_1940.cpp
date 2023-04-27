@@ -9,7 +9,8 @@ using namespace std;
 
 int main() {
     int N, M;
-    cin >> N >> M;
+    cin >> N;
+    cin >> M;
 
     vector<int> A(N, 0);
     for (int i = 0; i < N; i++) cin >> A[i];

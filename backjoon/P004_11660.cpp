@@ -29,7 +29,7 @@ int main() {
         int X1, Y1, X2, Y2;
         cin >> X1 >> Y1 >> X2 >> Y2;
         int r = S[X2][Y2] - S[X2][Y1 - 1] - S[X1 - 1][Y2] + S[X1 - 1][Y1 - 1];
-        cout << r << '\n';
+        cout << r << "\n";
     }
 }
 

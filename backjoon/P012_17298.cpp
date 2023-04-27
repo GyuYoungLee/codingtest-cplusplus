@@ -38,7 +38,7 @@ int main() {
         st.pop();
     }
 
-    for (int x: result) cout << x << ' ';
+    for (int x: result) cout << x << " ";
 }
 
 /*

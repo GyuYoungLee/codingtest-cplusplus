@@ -15,9 +15,9 @@ int main() {
     int N;
     cin >> N;
 
+    string answer;
     stack<int> st;
     int num = 1;
-    string answer;
 
     for (int i = 0; i < N; i++) {
         int now;

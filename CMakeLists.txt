@@ -3,5 +3,4 @@ project(codingtest)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(codingtest
-        main.cpp)
+add_executable(codingtest main.cpp)

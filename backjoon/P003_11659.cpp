@@ -26,7 +26,7 @@ int main() {
     for (int i = 0; i < M; i++) {
         int st, en;
         cin >> st >> en;
-        cout << S[en] - S[st - 1] << '\n';
+        cout << S[en] - S[st - 1] << "\n";
     }
 }
 

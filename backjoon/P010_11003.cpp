@@ -39,7 +39,7 @@ int main() {
         // 앞쪽에 기존 값 제거
         if (dq.front().second <= i - L) dq.pop_front();
 
-        cout << dq.front().first << ' ';
+        cout << dq.front().first << " ";
     }
 }
 
