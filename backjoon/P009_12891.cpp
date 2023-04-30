@@ -18,6 +18,7 @@ int main() {
 
     cin >> S >> P;
     cin >> A;
+
     for (int &x: check) {
         cin >> x;
         if (x == 0) checkCnt++;

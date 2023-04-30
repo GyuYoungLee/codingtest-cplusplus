@@ -23,11 +23,12 @@ int main() {
             sum -= i;
             i++;
         } else {
+            cnt++;
+
             j++;
             sum += j;
             sum -= i;
             i++;
-            cnt++;
         }
     }
 

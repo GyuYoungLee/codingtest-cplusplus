@@ -28,9 +28,10 @@ int main() {
         } else if (A[i] + A[j] < M) {
             i++;
         } else {
+            cnt++;
+
             j--;
             i++;
-            cnt++;
         }
     }
 

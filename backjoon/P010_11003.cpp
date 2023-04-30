@@ -24,7 +24,7 @@ int main() {
         while(!dq.empty() && dq.back().first > now) dq.pop_back();
         dq.emplace_back(now, i);
 
-        cout << dq.front().first << ' ';
+        cout << dq.front().first << " ";
     }
 
     // 슬라이딩하면서 각 윈도우 체크
